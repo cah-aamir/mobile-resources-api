@@ -2,12 +2,23 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const server = require('http').createServer(app);
+const fs = require('fs');
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
+
+app.get("/PIN:vanv104j", function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    fs.readFile('info.html', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+        res.end(data);
+    });
+});
 
 app.get("/api/contacts", function (req, res) {
     res.json({ message: "CONTACTS FOR YOU" });
