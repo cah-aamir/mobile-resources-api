@@ -22,8 +22,8 @@ app.get("/PIN:vanv104j", function (req, res) {
     });
 });
 
-app.get("/api/contacts", function (req, res) {
-    res.json({ message: "CONTACTS FOR YOU" });
+app.get("/api/test", function (req, res) {
+    res.json({ message: "TEST API WORKING!" });
 });
 
 app.get("/.well-known/assetlinks.json", function (req, res) {
